@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import "./Table.css";
+import "./EMP.css";
 import * as ReactBootstrap from "react-bootstrap";
 import { render } from "@testing-library/react";
 
