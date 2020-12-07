@@ -5,7 +5,7 @@ import * as ReactBootstrap from "react-bootstrap";
 class Table extends React.Component {
 
     state = {
-        employees: [],
+        employees: [""],
         search: ""
     };
 
@@ -63,9 +63,8 @@ class Table extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-
-                        {this.state.employees.filter(employee => employee.name.first.toLowerCase() .includes(this.state.search.toLowerCase()) || employee.name.last.toLowerCase() .includes(this.state.search.toLowerCase())).map(employee => {
-                            return (
+            {this.state.employees.filter(employee => employee.name.first.toLowerCase().includes(this.state.search.toLowerCase()) || employee.name.last.toLowerCase().includes(this.state.search.toLowerCase())).map(employee => {
+              return (
                                 <tr key={employee.id.value}>
                                     <tr>{employee.id.value}</tr>
                                     <tr>{employee.name.first}</tr>
