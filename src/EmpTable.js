@@ -1,7 +1,6 @@
-import React, { Component } from "react"
+import React from "react"
 import "./EMP.css";
 import * as ReactBootstrap from "react-bootstrap";
-import { render } from "@testing-library/react";
 
 class Table extends React.Component {
 
@@ -65,7 +64,7 @@ class Table extends React.Component {
                 </thead>
                 <tbody>
                 
-                {this.state.employees.filter(employee => employee.name.first.toLowerCase() .includes(this.state.search.toLowerCase()) || employee.name.last.toLowerCase() .includes(this.state.search.toLowerCase())).map(employee => {
+                {this.state.employees.filter(employee => employee.name.first.toLowerCase().includes(this.state.search.toLowerCase()) || employee.name.last.toLowerCase().includes(this.state.search.toLowerCase())).map(employee => {
                     return(
                         <tr key={employee.id.value}>
                         <tr>{employee.id.value}</tr>
