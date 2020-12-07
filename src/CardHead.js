@@ -10,7 +10,7 @@ function HeadCard (){
         Buisness name
         </div>
         <div className='card-body' id='card-body'>
-        <h1 className='card-title'>Search</h1>
+        <h1 className='card-title'>Buisness Name</h1>
         </div>
         </div>
         
