@@ -1,5 +1,5 @@
 import React from "react"
-import "./EMP.css";
+import "./EmpTable.css";
 import * as ReactBootstrap from "react-bootstrap";
 
 class Table extends React.Component {
@@ -8,10 +8,10 @@ class Table extends React.Component {
         employees: [],
         search: ""
     };
-   
+
     componentDidMount() {
         this.fetchEmployees();
-      }
+    }
 
     fetchEmployees = async () => {
         try {
@@ -38,51 +38,51 @@ class Table extends React.Component {
     render() {
         return (
             <>
-            <nav className="navbar navbar-dark bg-dark">
-            <form className="form-inline">
-            <input className="form-control mr-sm-2" 
-                type="search" 
-                placeholder="Filter by Name" 
-                onChange={this.handleInputChange}
-                name="search"
-                value={this.state.search}
-                aria-label="Search" />
-            </form>
-            </nav>
-            <ReactBootstrap.Table striped bordered hover>
-                <thead>
-                <tr>
-                
-                <th>Emp #</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>City</th>
-                <th>State</th>
-                </tr>
-                </thead>
-                <tbody>
-                
-                {this.state.employees.filter(employee => employee.name.first.toLowerCase().includes(this.state.search.toLowerCase()) || employee.name.last.toLowerCase().includes(this.state.search.toLowerCase())).map(employee => {
-                    return(
-                        <tr key={employee.id.value}>
-                        <tr>{employee.id.value}</tr>
-                        <tr>{employee.id.value}</tr>
-                        <tr>{employee.name.first}</tr>
-                        <tr>{employee.name.last}</tr>
-                        <tr>{employee.email}</tr>
-                        <tr>{employee.phone}</tr>
-                        <tr>{employee.location.city}</tr>
-                        <tr>{employee.location.state}</tr>
+                <nav className="navbar navbar-dark bg-dark">
+                    <form className="form-inline">
+                        <input className="form-control mr-sm-2"
+                            type="search"
+                            placeholder="Filter by Name"
+                            onChange={this.handleInputChange}
+                            name="search"
+                            value={this.state.search}
+                            aria-label="Search" />
+                    </form>
+                </nav>
+                <ReactBootstrap.Table striped bordered hover>
+                    <thead>
+                        <tr>
+
+                            <th>Emp #</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>City</th>
+                            <th>State</th>
                         </tr>
-                        )},
+                    </thead>
+                    <tbody>
+
+                        {this.state.employees.filter(employee => employee.name.first.toLowerCase() .includes(this.state.search.toLowerCase()) || employee.name.last.toLowerCase() .includes(this.state.search.toLowerCase())).map(employee => {
+                            return (
+                                <tr key={employee.id.value}>
+                                    <tr>{employee.id.value}</tr>
+                                    <tr>{employee.name.first}</tr>
+                                    <tr>{employee.name.last}</tr>
+                                    <tr>{employee.email}</tr>
+                                    <tr>{employee.phone}</tr>
+                                    <tr>{employee.location.city}</tr>
+                                    <tr>{employee.location.state}</tr>
+                                </tr>
+                            )
+                        },
                         )}
-                        </tbody>
-                        </ReactBootstrap.Table>
-                        </>
-                        )
-                    }
+                    </tbody>
+                </ReactBootstrap.Table>
+            </>
+        )
+    }
 }
 
 export default Table;
