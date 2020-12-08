@@ -17,7 +17,7 @@ class EmpTable extends React.Component {
         try {
             const response = await fetch(
                 "https://randomuser.me/api/?results=50&inc=id,name,email,phone,location&nat=us"
-                            );
+            );
             const data = await response.json();
             this.setState({ employees: data.results });
         } catch (error) {
@@ -45,7 +45,7 @@ class EmpTable extends React.Component {
                             placeholder="Filter by Name"
                             onChange={this.handleInputChange}
                             name="search"
-                            value={this.state.search}
+                            // value={this.state.search}
                             aria-label="Search" />
                     </form>
                 </nav>
@@ -63,22 +63,24 @@ class EmpTable extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                    {this.state.employees.filter(employee => employee.name.first.toLowerCase().includes(this.state.search.toLowerCase()) || employee.name.last.toLowerCase().includes(this.state.search.toLowerCase())).map(employee => {
-                      return (
-                        <tr key={employee.id.value}>
-                          <td>{employee.id.value}</td>
-                          <td>{employee.name.first}</td>
-                          <td>{employee.name.last}</td>
-                          <td>{employee.email}</td>
-                          <td>{employee.phone}</td>
-                          <td>{employee.location.city}</td>
-                          <td>{employee.location.state}</td>
-                        </tr>
-                        )},
-                    )}
-                  </tbody>
+                        {this.state.employees.filter(employee => employee.name.first.toLowerCase().includes(this.state.search.toLowerCase()) || employee.name.last.toLowerCase().includes(this.state.search.toLowerCase())).map(employee => {
+                            return (
+                                <tr key={employee.id.value}>
+                                    <td>{employee.id.value}</td>
+                                    <td>{employee.name.first}</td>
+                                    <td>{employee.name.last}</td>
+                                    <td>{employee.email}</td>
+                                    <td>{employee.phone}</td>
+                                    <td>{employee.location.city}</td>
+                                    <td>{employee.location.state}</td>
+                                </tr>
+                            )
+                        },
+                        )}
+                    </tbody>
                 </ReactBootstrap.Table>
-              </>
-            )};
-        }
-        export default EmpTable;
+            </>
+        )
+    };
+}
+export default EmpTable;
