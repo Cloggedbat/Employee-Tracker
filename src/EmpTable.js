@@ -2,10 +2,10 @@ import React from "react"
 import "./EmpTable.css";
 import * as ReactBootstrap from "react-bootstrap";
 
-class Table extends React.Component {
+class EmpTable extends React.Component {
 
     state = {
-        employees: [""],
+        employees: [],
         search: ""
     };
 
@@ -17,8 +17,8 @@ class Table extends React.Component {
         try {
             const response = await fetch(
                 "https://randomuser.me/api/?results=50&inc=id,name,email,phone,location&nat=us"
-            );
-            const data = await response.json
+                            );
+            const data = await response.json();
             this.setState({ employees: data.results });
         } catch (error) {
             console.log(error);
@@ -63,25 +63,22 @@ class Table extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-            {this.state.employees.filter(employee => employee.name.first.toLowerCase().includes(this.state.search.toLowerCase()) || employee.name.last.toLowerCase().includes(this.state.search.toLowerCase())).map(employee => {
-              return (
-                                <tr key={employee.id.value}>
-                                    <tr>{employee.id.value}</tr>
-                                    <tr>{employee.name.first}</tr>
-                                    <tr>{employee.name.last}</tr>
-                                    <tr>{employee.email}</tr>
-                                    <tr>{employee.phone}</tr>
-                                    <tr>{employee.location.city}</tr>
-                                    <tr>{employee.location.state}</tr>
-                                </tr>
-                            )
-                        },
-                        )}
-                    </tbody>
+                    {this.state.employees.filter(employee => employee.name.first.toLowerCase().includes(this.state.search.toLowerCase()) || employee.name.last.toLowerCase().includes(this.state.search.toLowerCase())).map(employee => {
+                      return (
+                        <tr key={employee.id.value}>
+                          <td>{employee.id.value}</td>
+                          <td>{employee.name.first}</td>
+                          <td>{employee.name.last}</td>
+                          <td>{employee.email}</td>
+                          <td>{employee.phone}</td>
+                          <td>{employee.location.city}</td>
+                          <td>{employee.location.state}</td>
+                        </tr>
+                        )},
+                    )}
+                  </tbody>
                 </ReactBootstrap.Table>
-            </>
-        )
-    }
-}
-
-export default Table;
+              </>
+            )};
+        }
+        export default EmpTable;
