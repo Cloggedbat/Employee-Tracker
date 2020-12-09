@@ -1,6 +1,6 @@
 {
-  "homepage": "https://LayneHansen.github.io/employee_search",
-  "name": "employee_search",
+  "homepage": "https://cloggedbat.github.io/Employee-Tracker/",
+  "name": "employee_tracker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -26,6 +26,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+
   },
   "eslintConfig": {
     "extends": [
